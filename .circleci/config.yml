@@ -3,9 +3,9 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/python:3.12
+      - image: circleci/python:3.7
 
-    working_directory: ~/repo
+    working_directory: ~/CalculatorLibrary
 
     steps:
       # Step 1: obtain repo from GitHub
@@ -14,12 +14,12 @@ jobs:
       - run:
           name: install dependencies
           command: |
-            conda activate --name CalculatorLibrary python
+            conda create --name CalculatorLibrary python
             conda install -r requirements.txt
       # Step 3: run linter and tests
       - run:
           name: run tests
           command: |
-            . venv/bin/activate
+            conda activate CalculatorLibrary
             flake8 --exclude=venv* --statistics
             pytest -v --cov=calculator
