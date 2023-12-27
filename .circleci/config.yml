@@ -18,7 +18,7 @@ jobs:
             conda init bash
             source ~/.bashrc
             conda activate CalculatorLibrary
-            conda install -r requirements.txt
+            conda install --file requirements.txt
       # Step 3: run linter and tests
       - run:
           name: run tests
