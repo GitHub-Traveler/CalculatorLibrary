@@ -15,6 +15,7 @@ jobs:
           name: install dependencies
           command: |
             conda create --name CalculatorLibrary python
+            conda activate CalculatorLibrary
             conda install -r requirements.txt
       # Step 3: run linter and tests
       - run:
